@@ -1,0 +1,16 @@
+ const arr = [1,2,3,4,5]
+
+ arr.forEach((e,i)=>{})
+
+ arr.map((e,i)=>{})
+
+
+
+
+ const arr = [1,2,3,4,5]
+
+
+ const [uno,dos,tres] = arr    
+  const uno = arr[0]
+  const dos = arr[0]
+  const tres = arr[0]
