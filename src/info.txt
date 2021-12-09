@@ -4,6 +4,14 @@
 
  arr.map((e,i)=>{})
 
+Props : Son parametros de una funcion 
+
+state : Son variables internas de un componente que si las modifico el componente se actualiza 
+
+- ciclo de vida 
+- metodos de ciclo de vida 
+
+
 
 
 
