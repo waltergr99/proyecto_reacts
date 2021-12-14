@@ -1,13 +1,20 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({foo}) => {
+
+
+ foo()
+
 
     return (
 
         <header id="mian-header" className="header">
+      <div>
+      <h1>E-Commerce</h1>
 
-        <h1>E-Commerce</h1>
-        <span className= "material-icons">
+      </div>
+       
+        <span onClick={foo} className= "material-icons">
              shopping_cart
        </span>
        

@@ -1,27 +1,30 @@
-import logo from './viking.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './componentes/NavBar';
-import { Nav,Navbar,NavDropdown } from 'react-bootstrap'
-import Header from './Header';
+import NavBar from './componentes/NavBar/NavBar';
+import Header from './componentes/Header/Header';
 import Button from 'react-bootstrap/Button';
+import ItemListContainer from "./componentes/ItemCount/ItemListContainer"
 
 
 function App() {
+
+  const foo = (a) => {
+ console.log("soy foo")
+
+  }
+
   return (
-    <div className="App">
-     
+  
+  <>
+   
      
        <NavBar  />
-        
-  
-       <Header/>
+       <Header foo={foo}/>
        <Button variant="primary">Primary</Button>{' '}
-
-     
-    </div>
+       <ItemListContainer gretting="Hola mundo, este es mi proyecto de e-commerce"/>
+    </>
     
-  );
+  )
 }
 
 export default App;
