@@ -28,7 +28,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <>
             
-                <h4>Producto: PC</h4>
+                <h4>Producto: Ropa</h4>
                 
                 <h4>Stock: {stock}</h4>
                 <h4>{contador}</h4>
