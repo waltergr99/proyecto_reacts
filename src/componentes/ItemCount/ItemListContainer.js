@@ -1,11 +1,62 @@
 import React from 'react';
+import { useState , useEffect } from "react"
 import ItemCount from "./ItemCount"
+import ItemList from "./ItemList";
 
 const onAdd = ()=>{
 
     console.log("Producto agregado")
 }
+const products = [
+    {
+        id: 1,
+        title: 'Pantalones',
+        description: 'Razgados y sin razgar',
+        price: 'S/.70.00',
+        pictureUrl: 'url',
+        
+    },
+    {
+        id: 2,
+        title: 'Jogger',
+        description: 'Bolsillos chinos',
+        price: 'S/.75.00',
+        pictureUrl: 'url',
+        
+    },
+    {
+        id: 3,
+        title: 'Short',
+        description: 'razgados y sin razgar',
+        price: 'S/.55.00',
+        pictureUrl: 'url',
+        
+    },
+    
+];
+
 const ItemListContainer = (props) => {
+
+    let [lista, setLista] = useState([])
+
+    useEffect(()=>{
+
+        const promesa = new Promise((res,rej)=>{
+            setTimeout(()=>{
+                res(products)
+            },2000)
+        })
+        
+        promesa
+        .then((productos)=>{
+            console.log("Todo bien")
+            setLista(productos)
+        })
+        .catch(()=>{
+            console.log("Todo mal")
+        })
+
+    },[])
 
     return (
         <>
@@ -18,6 +69,7 @@ const ItemListContainer = (props) => {
 
             </main>
 
+            <ItemList lista={lista}/>
 
 
         </>
@@ -25,6 +77,3 @@ const ItemListContainer = (props) => {
 }
 
 export default ItemListContainer
-
-
-

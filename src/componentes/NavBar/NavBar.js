@@ -5,8 +5,6 @@ import React from 'react'
 import { Nav,Navbar,NavDropdown } from 'react-bootstrap'
 
 
-
-
 const  NavBar = () => 
 
 
@@ -44,7 +42,6 @@ sticky="top" >
  </>
 }
 <div>aaaaaaaaaaaaa</div>
+
+
 export default NavBar 
-
-
-
