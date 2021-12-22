@@ -24,7 +24,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             setContador(0)
         }
 
+
     }
+
+    const agregarItem = () => {
+        console.log("Aca agrego un item")
+  
+  }
     return (
         <>
             
@@ -36,7 +42,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 
                     <button onClick={restar}>RESTAR</button>
                
-                <button onClick={onAdd}>Agregar</button>
+                <button onClick={agregarItem}>Agregar</button>
 
         </>
 

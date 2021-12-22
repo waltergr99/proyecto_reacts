@@ -4,6 +4,9 @@ import Itemlistcontainer from "./componentes/ItemCount/ItemListContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
+
+
+
 function App() {
    
 
@@ -18,8 +21,6 @@ function App() {
         console.log("soy foo")
     }
 
- 
-    
     const productos = [
         {
             id: 1,
@@ -55,7 +56,7 @@ function App() {
                 <p>Hola</p>
             </Header>
             <Itemlistcontainer gretting={"Hola mundo, este es mi proyecto "} links={links}/>
-
+          
         </>
     )
 }

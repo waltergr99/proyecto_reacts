@@ -1,7 +1,8 @@
-import React from 'react';
-import { useState , useEffect } from "react"
 import ItemCount from "./ItemCount"
+import { useState , useEffect } from "react"
 import ItemList from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
+
 
 const onAdd = ()=>{
 
@@ -35,7 +36,7 @@ const products = [
     
 ];
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({gretting}) => {
 
     let [lista, setLista] = useState([])
 
@@ -63,14 +64,14 @@ const ItemListContainer = (props) => {
 
             <main>
                 
-               <p className="grett"> {props.gretting} </p>
+               <p className="grett"> {gretting} </p>
                 
-                <ItemCount stock={5} initial={0} onAdd={onAdd}></ItemCount>
+                <ItemCount stock={5} initial={1} onAdd={onAdd}></ItemCount>
 
             </main>
 
             <ItemList lista={lista}/>
-
+            <ItemDetailContainer/>
 
         </>
     )
