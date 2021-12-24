@@ -1,0 +1,80 @@
+
+ $main-color : rgb(48, 51, 53);
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+
+ html , body , #root {
+     height: 100vh;
+ }
+
+ #root {
+     display: flex;
+     flex-direction: column;
+ }
+
+ #main-header {
+    background-color: $main-color;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 3px rgba(250, 249, 249, 0.3);
+
+    #brand {
+        display: flex;
+        align-items: center;
+         
+        > a { 
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            height: 60px;
+            margin-right: 16px;
+        }
+    }
+
+    nav {
+        a {
+            color : rgb(255, 255, 255);
+            text-decoration: none;
+            margin-left: 16px;
+        }
+    }
+ }
+
+ main {
+     padding: 1rem;
+     flex-grow: 1;
+     padding: 1rem;
+ }
+
+ footer {
+     background-color: yellow;
+     padding: 0.5rem 0;
+     text-align: center;
+ }
+
+ #item-container {
+     display: flex;
+
+     .item {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+         margin: 1rem;
+         padding: 0.5rem;
+         border-radius: 3px;
+         transition: all 0.3s ease ;
+
+         &:hover {
+             transform: scale(1.1);
+         }
+     }
+ }

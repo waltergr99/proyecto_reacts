@@ -1,17 +1,19 @@
 import Header from "./componentes/Header/Header"
 import NavBar from "./componentes/NavBar/NavBar"
 import Itemlistcontainer from "./componentes/ItemCount/ItemListContainer";
+import Carrito from "./Carrito"
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import ItemDetailContainer from "./componentes/ItemCount/ItemDetailContainer";
+import "./App.scss"
 
 function App() {
    
+    let [show, setShow] = useState(false)
 
     const links = [
-        { href: "#", name: "inicio", id: 1 },
+        { href: "/", name: "inicio", id: 1 },
         { href: "#", name: "Productos", id: 2 },
         { href: "#", name: "Contactos", id: 3 },
         { href: "#", name: "Carrito", id: 4 }
@@ -49,13 +51,21 @@ function App() {
    
     return (
         <>
-            
-            <NavBar />
-            <Header nombre={"E-Commerce"} edad={1} links={links} foo={foo}>
-                <p>Hola</p>
-                <p>Hola</p>
-            </Header>
-            <Itemlistcontainer gretting={"Hola mundo, este es mi proyecto "} links={links}/>
+            <BrowserRouter>  
+        
+            <Header nombre={"WALTER"} edad={1} links={links} foo={foo}/>
+               <main> 
+               
+           
+           
+           <Routes>  
+          
+           <Route path="/carrito" element={<Carrito />} />
+           <Route path="/" element={<Itemlistcontainer greeting="Welcome" />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+            </Routes>
+            </main>
+            </BrowserRouter>
           
         </>
     )

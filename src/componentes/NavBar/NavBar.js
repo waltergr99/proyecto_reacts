@@ -31,7 +31,7 @@ sticky="top" >
 
 <Nav.Link href="./CartWidget">Blog</Nav.Link>
 <Nav.Link href="about">Sobre de </Nav.Link>
-<Nav.Link href="contacto" > Carrito <span className= "material-icons">  shopping_cart </span>
+<Nav.Link href="/ItemCount/Item" > Carrito <span className= "material-icons">  shopping_cart </span>
  </Nav.Link>
 
 </Nav>
