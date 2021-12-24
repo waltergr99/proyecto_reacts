@@ -14,7 +14,7 @@ const products = [
         title: 'Pantalones',
         description: 'Razgados y sin razgar',
         price: 'S/.70.00',
-        pictureUrl: 'url',
+        pictureUrl: 'clasico_azul.PNG',
         
     },
     {
@@ -22,7 +22,7 @@ const products = [
         title: 'Jogger',
         description: 'Bolsillos chinos',
         price: 'S/.75.00',
-        pictureUrl: 'url',
+        pictureUrl: 'celeste_hielo.PNG',
         
     },
     {
@@ -30,7 +30,7 @@ const products = [
         title: 'Short',
         description: 'razgados y sin razgar',
         price: 'S/.55.00',
-        pictureUrl: 'url',
+        pictureUrl: 'Jeans_blanco.PNG',
         
     },
     

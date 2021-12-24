@@ -53,7 +53,7 @@ function App() {
         <>
             <BrowserRouter>  
         
-            <Header nombre={"WALTER"} edad={1} links={links} foo={foo}/>
+            <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo}/>
                <main> 
                
            

@@ -8,7 +8,7 @@ import ItemDetail from "./ItemDetail"
         title: 'DETALLES PRODUCTOS',
         description: 'Razgados y sin razgar',
         price: 'MAS INFORMACION AL INTERNO',
-        pictureUrl: 'url',
+        
         
     }
 

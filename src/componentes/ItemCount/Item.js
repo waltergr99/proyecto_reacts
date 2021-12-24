@@ -12,6 +12,7 @@ const Item = ({ item }) => {
                 <li className={styles.itemList}>
                 <h3 className={styles.title}>{item.description}</h3>
                 <p className={styles.price}>Precio : ${item.price}</p>
+                <img src={item.pictureUrl} alt="thumbnail" />
                 <Button href="./Index" >ver detalle </Button>
                 <Link to={`/item/${item.id}`}>
      <button type="button">
