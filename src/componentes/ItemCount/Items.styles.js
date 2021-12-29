@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     width: 150,
     height: 150,
-    backgroundColor: '#42E0AD',
+    backgroundColor: '#0758d3',
     borderRadius: 3
   },
   title: {

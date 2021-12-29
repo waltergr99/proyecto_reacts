@@ -1,5 +1,6 @@
 import { Link, NavLink} from "react-router-dom"
 
+import { NavBar, Container, Nav, NavDropdown } from "react-bootstrap"
 
 const Header =({ nombre,links}) => {
 
@@ -8,7 +9,7 @@ const Header =({ nombre,links}) => {
         <header id="main-header" className="header">
       <div id="brand">
         <NavLink to="/">  
-        
+        <img className="fox" src="/viking.png" alt="logo" />
       <h1>{nombre}</h1>
         
         </NavLink>

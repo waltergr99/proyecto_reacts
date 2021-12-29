@@ -1,5 +1,4 @@
 import Header from "./componentes/Header/Header"
-import NavBar from "./componentes/NavBar/NavBar"
 import Itemlistcontainer from "./componentes/ItemCount/ItemListContainer";
 import Carrito from "./Carrito"
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,16 +6,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import ItemDetailContainer from "./componentes/ItemCount/ItemDetailContainer";
 import "./App.scss"
+import Home from "./componentes/NavBar/Home"
+import productoss from "./productoss.json"
+
 
 function App() {
-   
+
     let [show, setShow] = useState(false)
 
     const links = [
-        { href: "/", name: "inicio", id: 1 },
-        { href: "#", name: "Productos", id: 2 },
-        { href: "#", name: "Contactos", id: 3 },
-        { href: "#", name: "Carrito", id: 4 }
+        { href: "/Home", name: "inicio", id: 1 },
+        { href: "productos", name: "Productos", id: 2 },
+        { href: "/categoria/pantalones", name: "Pantalones", id: 3 },
+        { href: "/categoria/casacas", name: "Casacas", id: 4 },
+        { href: "/carrito", name: "Carrito", id: 5 }
     ]
 
     const foo = () => {
@@ -26,47 +29,51 @@ function App() {
     const productos = [
         {
             id: 1,
-            src: 's',
-            alt: 'Casacas, modelos exclusivos',
-            nombre: 'Artículo 1',
-            stock: 10,
-            precio: 52
+            title: 'Pantalones',
+            description: 'Razgados y sin razgar',
+            price: 'S/.70.00',
+            pictureUrl: 'clasico_azul.PNG',
+
         },
         {
             id: 2,
-            src: 's',
-            alt: 'Casacas, modelos exclusivos',
-            nombre: 'Artículo 2',
-            precio: 82
+            title: 'Jogger',
+            description: 'Bolsillos chinos',
+            price: 'S/.75.00',
+            pictureUrl: 'celeste_hielo.PNG',
+
         },
         {
             id: 3,
-            src: 's',
-            alt: 'Casacas, modelos exclusivos',
-            nombre: 'Artículo 3',
-            precio: 99
-        },
+            title: 'Short',
+            description: 'razgados y sin razgar',
+            price: 'S/.55.00',
+            pictureUrl: 'Jeans_blanco.PNG',
+
+        }
+
     ];
 
-   
+
     return (
         <>
-            <BrowserRouter>  
-        
-            <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo}/>
-               <main> 
-               
-           
-           
-           <Routes>  
-          
-           <Route path="/carrito" element={<Carrito />} />
-           <Route path="/" element={<Itemlistcontainer greeting="Welcome" />} />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-            </Routes>
-            </main>
+            <BrowserRouter>
+
+                <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo} />
+                <main>
+
+
+
+                    <Routes>
+                        <Route path="/Home" element={<Home />} />
+                        <Route path="/productos" element={<Itemlistcontainer gretting={"Hola mundo, este es mi proyecto de e-commerce"} links={links} productoss={productoss}/>} />
+                        <Route path="/categoria/:nombre" element={<Itemlistcontainer  greeting={"Bienvenido!"} productoss={productoss} />} />  
+                        <Route path="/carrito" element={<Carrito />} />
+                        <Route path="/producto/:idd" element={<ItemDetailContainer productoss={productoss}/>} />
+                    </Routes>
+                </main>
             </BrowserRouter>
-          
+
         </>
     )
 }

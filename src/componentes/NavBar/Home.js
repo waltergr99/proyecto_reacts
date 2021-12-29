@@ -1,6 +1,6 @@
 
 
-const Index = () => {
+const Home = () => {
   return (
     
    <h1> HOLA </h1>    
@@ -9,3 +9,5 @@ const Index = () => {
     )
 
 }
+
+export default Home

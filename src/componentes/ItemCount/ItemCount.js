@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import Button from 'react-bootstrap/Button'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, links }) => {
 
     let [contador, setContador] = useState(0)
 
@@ -38,11 +38,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 
                 <h4>Stock: {stock}</h4>
                 <h4>{contador}</h4>
-                    <Button onClick={sumar}>SUMAR</Button>
-                
-                    <Button onClick={restar}>RESTAR</Button>
-               
-                <Button onClick={agregarItem}>Agregar</Button>
+
+                    <Button onClick={sumar}>+</Button>
+                    <Button onClick={restar}>-</Button>
+                    <Button onClick={onAdd}>Agregar</Button>
 
         </>
 
