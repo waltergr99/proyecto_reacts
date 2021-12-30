@@ -6,15 +6,15 @@ import {useParams} from "react-router-dom"
 
 const productosIniciales = [
     {
-        id: 1, title: 'Pantalones', description: 'Razgados y sin razgar',price: 'S/.70.00',pictureUrl: 'clasico_azul.PNG',
+        id: 1, title: 'Pantalones', description: 'Razgados y sin razgar',price: 'S/.70.00',pictureUrl: '/clasico_azul.PNG',
         
     },
     {
-        id: 2,title: 'Jogger', description: 'Bolsillos chinos',price: 'S/.75.00',pictureUrl: 'celeste_hielo.PNG',
+        id: 2,title: 'Jogger', description: 'Bolsillos chinos',price: 'S/.75.00',pictureUrl: '/celeste_hielo.PNG',
         
     },
     {
-        id: 3,title: "Short",description: "razgados y sin razgar", price: "S/.55.00",pictureUrl: "Jeans_blanco.PNG"
+        id: 3,title: "Short",description: "razgados y sin razgar", price: "S/.55.00",pictureUrl: "/Jeans_blanco.PNG"
         
     }
     

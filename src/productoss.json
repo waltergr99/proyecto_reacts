@@ -4,7 +4,7 @@
     "title": "Pantalones",
     "description": "Razgados y sin razgar",
     "price": "S/.70.00",
-    "pictureUrl": "clasico_azul.PNG"
+    "pictureUrl": "/clasico_azul.png"
     
 },
 {
@@ -12,7 +12,7 @@
     "title": "Jogger",
     "description": "Bolsillos chinos",
     "price": "S/.75.00",
-    "pictureUrl": "celeste_hielo.PNG"
+    "pictureUrl": "/celeste_hielo.PNG"
     
 },
 {
@@ -20,7 +20,7 @@
     "title": "Short",
     "description": "razgados y sin razgar",
     "price": "S/.55.00",
-    "pictureUrl": "Jeans_blanco.PNG"
+    "pictureUrl": "/Jeans_blanco.PNG"
     
 }
 ]

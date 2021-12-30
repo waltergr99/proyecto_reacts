@@ -1,12 +1,12 @@
+import { useState, useEffect } from 'react'
 import Header from "./componentes/Header/Header"
 import Itemlistcontainer from "./componentes/ItemCount/ItemListContainer";
-import Carrito from "./Carrito"
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useState, useEffect } from 'react'
 import ItemDetailContainer from "./componentes/ItemCount/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./App.scss"
 import Home from "./componentes/NavBar/Home"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Carrito from "./Carrito"
 import productoss from "./productoss.json"
 
 
@@ -26,7 +26,7 @@ function App() {
         console.log("soy foo")
     }
 
-    const productos = [
+    /*const productos = [
         {
             id: 1,
             title: 'Pantalones',
@@ -52,7 +52,7 @@ function App() {
 
         }
 
-    ];
+    ];*/
 
 
     return (
