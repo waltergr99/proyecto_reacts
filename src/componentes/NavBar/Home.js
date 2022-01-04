@@ -1,11 +1,19 @@
 
 
 const Home = () => {
+  const hacerClick = () => {
+    console.log("HOLA DESDE EL CLICK")
+}
+
   return (
     
-   <h1> HOLA </h1>    
-    
-    
+    <div>
+
+      <h1> HOLA </h1>    
+
+     <button onClick={hacerClick}>click</button>
+
+    </div> 
     )
 
 }

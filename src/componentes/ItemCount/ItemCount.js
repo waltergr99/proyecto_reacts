@@ -1,10 +1,11 @@
 import React from "react"
 import { useState } from "react"
 import Button from 'react-bootstrap/Button'
+import {Link } from "react-router-dom"
 
-const ItemCount = ({ stock, initial, onAdd, links }) => {
+const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
 
-    let [contador, setContador] = useState(0)
+    let [contador, setContador] = useState(initial)
 
     const sumar = () => {
 
@@ -27,13 +28,21 @@ const ItemCount = ({ stock, initial, onAdd, links }) => {
 
     }
 
-    const agregarItem = () => {
-        console.log("Aca agrego un item")
-  
+    const agregarItem = (e) => {
+        onAdd(contador)
+        console.log("Aca agrego un item" + contador + " UNIDADES AL CARRITO")
+        e.target.disabled = true
+        setMostrar(true) 
+        
+        setTimeout(() => {
+
+        }, 3000);
+        
   }
     return (
         <>
             
+
                 <h4>Producto: Ropa</h4>
                 
                 <h4>Stock: {stock}</h4>
@@ -41,11 +50,29 @@ const ItemCount = ({ stock, initial, onAdd, links }) => {
 
                     <Button onClick={sumar}>+</Button>
                     <Button onClick={restar}>-</Button>
+                    <Link to={`/carrito`}>
                     <Button onClick={onAdd}>Agregar</Button>
-
+                    </Link>
         </>
 
     )
 }
 
-export default ItemCount
+export default ItemCount 
+
+/*return (
+    <>
+    <div id="fichaContador">       
+    <div id="contadorProducto">
+    <span class="material-icons" onClick={sumar}>+</span>
+    <p>{contador}</p>
+    <span class="material-icons" onClick={restar}>-</span>
+    
+   <Link to={`/carrito`}><button onClick={agregarItem}>AGREGAR</button></Link>
+    </div>
+    </div>
+    </>
+)
+}
+
+export default ItemCount */
