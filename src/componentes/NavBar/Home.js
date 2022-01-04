@@ -1,4 +1,6 @@
 
+import Button from 'react-bootstrap/Button'
+
 
 const Home = () => {
   const hacerClick = () => {
@@ -9,9 +11,13 @@ const Home = () => {
     
     <div>
 
-      <h1> HOLA </h1>    
-
-     <button onClick={hacerClick}>click</button>
+      <h1> A CONFIRMADO LA COMPRA </h1>    
+       
+      
+     <Button onClick={hacerClick}>Finalizar</Button>
+      
+      
+    
 
     </div> 
     )
