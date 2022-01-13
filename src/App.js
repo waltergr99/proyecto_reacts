@@ -8,6 +8,7 @@ import Home from "./componentes/NavBar/Home"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carrito from "./Carrito"
 import productoss from "./productoss.json"
+import CustomProvider from './componentes/Card/Context';
 
 
 function App() {
@@ -57,6 +58,11 @@ function App() {
 
     return (
         <>
+            
+            <CustomProvider> 
+
+
+
             <BrowserRouter>
 
                 <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo} />
@@ -73,7 +79,8 @@ function App() {
                     </Routes>
                 </main>
             </BrowserRouter>
-
+            </CustomProvider>
+        
         </>
     )
 }

@@ -27,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
 
 
     }
-
+ /*
     const agregarItem = (e) => {
         onAdd(contador)
         console.log("Aca agrego un item" + contador + " UNIDADES AL CARRITO")
@@ -37,8 +37,13 @@ const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
         setTimeout(() => {
 
         }, 3000);
-        
-  }
+        */
+        const agregarItem = () => {
+            console.log("Aca agrego un item con onAdd")
+            setContador(initial)
+            onAdd(contador)
+        }
+  
     return (
         <>
             
@@ -51,8 +56,9 @@ const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
                     <Button onClick={sumar}>+</Button>
                     <Button onClick={restar}>-</Button>
                     <Link to={`/carrito`}>
-                    <Button onClick={onAdd}>Agregar</Button>
+                    <Button onClick={agregarItem}>Agregar</Button>
                     </Link>
+                   
         </>
 
     )
