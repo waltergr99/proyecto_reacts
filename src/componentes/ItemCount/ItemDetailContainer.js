@@ -1,15 +1,17 @@
-import ItemCount from "./ItemCount"
+import { collection, doc, getDoc } from "firebase/firestore"
 import { useState , useEffect } from "react"
-import ItemList from "./ItemList"
-import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import {db} from "./firebase"
+import ItemDetail from "./ItemDetail"
+import ItemList from "./ItemList";
 
- 
+const ItemDetailContainer = ( {productoss} ) => {
 
-const ItemDetailContainer = ({productoss}) => {
+    let [lista,setLista] = useState([null])
+    let { idd } = useParams();
+    console.log(idd);
 
-        let [lista,setLista] = useState([])
-        let { idd } = useParams();
+        /*
         console.log(idd);
         
     const getItem = () =>{
@@ -28,8 +30,26 @@ const ItemDetailContainer = ({productoss}) => {
     
     
     } 
-    useEffect(() => getItem(),[idd])
+    */
+    useEffect(() => {
 
+        const productosCollection = collection(db, "productos")
+
+        const refDoc = doc(productosCollection, idd)
+        getDoc(refDoc)
+            .then((resultado)=>{
+                setLista(resultado.data())
+
+            })
+            .catch((error) =>{
+
+            })
+    /*
+    
+   
+   getItem(),
+   */ 
+},[idd])
 
     return (
        <div>

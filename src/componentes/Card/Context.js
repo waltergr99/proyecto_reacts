@@ -24,58 +24,61 @@ export const useContexto = () => {
 }
 
 const CustomProvider = ({children}) => {
+    const [precio_total,setPrecioTotal] = useState(0)
     const [cantidad_total,setCantidadTotal] = useState(0)
     const [carrito,setCarrito] = useState([])
 
     const addItem = (item,cantidad) => {
-        console.log("Soy el provider")
-             console.log(item,cantidad)
 
-                const copia_producto = {...item}
-                copia_producto.cantidad = cantidad
+        const id = item.id
+        if (isInCart(id)) {
 
-        /*const copia = producto.slice(0)
-        copia.push(producto)
-        setCarrito(copia) */
 
-        //setCarrito(producto.slice(0).push(producto))
+            const copia_producto = {...item}
+            let match = copia_producto.find((p) => p.id === item.id)
+            match.cantidad = match.cantidad + cantidad
+            setCarrito(copia_producto)
 
-        /* const copia = [...carrito]
-        copia.push(producto)
-        setCarrito(copia) */
+        }else {
 
-        /* const copia = [...carrito,producto]
-        setCarrito(copia) */
-
-        setCarrito([...carrito,copia_producto])
-        setCantidadTotal(cantidad_total + cantidad)
-        
-        //producto.cantidad = cantidad
-        /* if(isInCarrito()){
-            
-        }else{
-
-        } */
+             const producto_con_cantidad = {
+                 
+                ...item,
+                cantidad
     }
+        setCarrito([...carrito,producto_con_cantidad])
+}
+        setCantidadTotal(cantidad_total + cantidad)
+        setPrecioTotal(precio_total + (item.price * cantidad))
+      
+    }
+
     //BORRAR DEL CARRITO
 
-    const removeItem = (id) => {
-        //const nuevo_carrito = ?
-        //setCarrito(estadoArray.filter())
-        //setCarrito(estadoArray.map())
+    const removeItem = (id,cantidad,precio) => {
+        let carritoFiltrado = carrito.filter(e => (e.id) !== id)
+        setCarrito(carritoFiltrado)
+        console.log("carrito filtrado" + carritoFiltrado)
+        setPrecioTotal(precio_total - (precio * cantidad))
     }
 
     //LIMPIAR CARRITO
 
-    const clear = () => {  setCarrito([])  }
+    const clear = () => { 
+        
+        setCarrito([])
+        setCantidadTotal(0)
+    
+    }
 
     const isInCart = (id) => {
-        //return true ? false
+        return carrito.some((p) => p.id === id)
     }
 
     //VALOR DEL CONTEXTO
 
     const valorDelContexto = {
+        precio_total,
         cantidad_total , 
         carrito , 
         addItem , 
@@ -83,6 +86,12 @@ const CustomProvider = ({children}) => {
         clear
     }
 
+/*
+    const totalCarrito = (item,cantidad,precio) => {
+
+        const copia_producto = [...carrito]
+    }
+    */
     return (
         <Provider value={valorDelContexto}>
             {children}

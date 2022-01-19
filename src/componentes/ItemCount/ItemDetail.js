@@ -1,37 +1,32 @@
 
 import ItemCount from "./ItemCount"
 import useStyles  from "./Items.styles";
-import { useState  } from "react";
-
 import React from "react"
 import { useContexto } from "../Card/Context";
-
+import { useState, useEffect } from "react"
 
 const ItemDetail = ({ lista }) => {
     
     const styles = useStyles()
-    /*
-    let [cantidad,setCantidad] = useState("")
-    */
+    
+   
 
     let [mostrar, setMostrar] = useState(false)
     
-    const { addItem} = useContexto()
 
-    /*const onAdd =() => {
-        console.log("cantidad de unidades" + cantidad)
+    const {addItem} = useContexto()
 
-    }
-
-   */
+    
 
     const onAdd = (cantidad) => {
         
-        console.log("cantidad de unidades " + cantidad)
-        addItem(lista,cantidad)
+        console.log("cantidad de unidades" + cantidad)
+        addItem(cantidad,lista)
+        console.log("cantidad de lista" + lista.description)
     }
 
     if (mostrar === false) {
+        
     return (
         
             <article className={styles.detailtitle}>
@@ -42,7 +37,11 @@ const ItemDetail = ({ lista }) => {
             </article>
         
     )
-    }else{
+    }
+    
+    
+    
+    else{
 
         return (
 
@@ -69,6 +68,7 @@ const ItemDetail = ({ lista }) => {
 
     }
 }
+
 export default ItemDetail 
 
 

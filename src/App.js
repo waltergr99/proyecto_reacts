@@ -9,11 +9,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Carrito from "./Carrito"
 import productoss from "./productoss.json"
 import CustomProvider from './componentes/Card/Context';
+import { createContext} from 'react'
 
+export const contextos = createContext({cantidad_total: 5, carrito : []})
 
 function App() {
 
-    let [show, setShow] = useState(false)
+  
 
     const links = [
         { href: "/Home", name: "inicio", id: 1 },
@@ -26,43 +28,35 @@ function App() {
     const foo = () => {
         console.log("soy foo")
     }
-
-    /*const productos = [
-        {
-            id: 1,
-            title: 'Pantalones',
-            description: 'Razgados y sin razgar',
-            price: 'S/.70.00',
-            pictureUrl: 'clasico_azul.PNG',
-
+    const products = [
+        {  id: '1',
+        title: 'Pantalones',
+        description: 'Razgados y sin razgar',
+        price: 'S/.70.00',
+        pictureUrl: '/clasico_azul.png'
+        
+    },
+    {
+        id: '2',
+        title: 'Jogger',
+        description: 'Bolsillos chinos',
+        price: 'S/.75.00',
+        pictureUrl: '/celeste_hielo.PNG'
+        
+    },
+    {
+        id: '3',
+        title: 'Short',
+        description: 'razgados y sin razgar',
+        price: 'S/.55.00',
+        pictureUrl: '/Jeans_blanco.PNG'
         },
-        {
-            id: 2,
-            title: 'Jogger',
-            description: 'Bolsillos chinos',
-            price: 'S/.75.00',
-            pictureUrl: 'celeste_hielo.PNG',
 
-        },
-        {
-            id: 3,
-            title: 'Short',
-            description: 'razgados y sin razgar',
-            price: 'S/.55.00',
-            pictureUrl: 'Jeans_blanco.PNG',
-
-        }
-
-    ];*/
-
-
+    ];
     return (
         <>
             
             <CustomProvider> 
-
-
-
             <BrowserRouter>
 
                 <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo} />

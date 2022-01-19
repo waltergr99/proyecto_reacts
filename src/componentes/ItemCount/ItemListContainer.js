@@ -1,42 +1,61 @@
-import ItemCount from "./ItemCount"
+
 import { useState , useEffect } from "react"
 import ItemList from "./ItemList";
-
 import {useParams} from "react-router-dom"
+import {db} from "./firebase"
+import {getDocs, query, collection, where} from "firebase/firestore"
+import ItemDetailContainer from "./ItemDetailContainer";
+import ItemCount from "./ItemCount"
 
-const productosIniciales = [
-    {
-        id: 1, title: 'Pantalones', description: 'Razgados y sin razgar',price: 'S/.70.00',pictureUrl: '/clasico_azul.PNG',
-        
-    },
-    {
-        id: 2,title: 'Jogger', description: 'Bolsillos chinos',price: 'S/.75.00',pictureUrl: '/celeste_hielo.PNG',
-        
-    },
-    {
-        id: 3,title: "Short",description: "razgados y sin razgar", price: "S/.55.00",pictureUrl: "/Jeans_blanco.PNG"
-        
-    }
-    
-]
+
+console.log(db)
+const onAdd = () => {
+
+
+    console.log("Producto agregado")
+}
 
 const ItemListContainer = ({productoss},{gretting}) => {
 
     let [lista, setLista] = useState([])
-    const { id } = useParams()
-
+    let { id } = useParams()
+    console.log(id);
     
     useEffect(()=>{
-        if (!id){
-            
-            
+        const productosCollection = collection(db, "productos")
+        setTimeout(() => { if (id){
+
+
+            const consulta = query(productosCollection,
+                
+                where ("casacas","==",id),
+                
+                where("price",">",50))
+            getDocs(consulta)
+            .then(({docs}) => {
+
+                setLista(docs.map((doc) =>({id: doc.id, ...doc.data()})))
+
+            })
+            .catch((error) => {
+                console.log(error)
+
+            })
         }else{
-            
+
+           getDocs(productosCollection)
+                .then(( {docs}) => {
+                    setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+
+                }) 
+                .catch((error) => {
+                    console.log(error)
+
+                })
+
            
-
-
-        }
-        
+        }},500)
+        /*
         const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
                     if (!id){
@@ -64,12 +83,12 @@ const ItemListContainer = ({productoss},{gretting}) => {
         .catch(() => {
             console.log("Todo mal")
         })
-     
+     */
     },[id])
 
     return (
         <div>
-               <p className="grett"> {gretting} </p>
+               <p> {gretting} </p>
             <ItemList lista={lista}/>
         </div>
     )
