@@ -1,18 +1,6 @@
 import { Children, createContext, useContext, useState } from "react";
 
-/*const contexto = createContext({cantidad_total : 5 , carrito : [
 
-    {
-    "id": "9",
-    "title": "Laptops",
-    "description": "LAPTOP HP 240 G7, 14 HD",
-    "price": "S/.1670.00",
-    "stock": "15",
-    "pictureUrl": "/laptop 1.PNG"
-    
-    }
-    
-]})*/
 const contexto = createContext()
 
 

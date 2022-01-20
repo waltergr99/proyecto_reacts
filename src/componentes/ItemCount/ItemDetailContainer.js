@@ -1,55 +1,32 @@
-import { collection, doc, getDoc } from "firebase/firestore"
+import ItemCount from "./ItemCount"
 import { useState , useEffect } from "react"
-import { useParams } from "react-router-dom"
-import {db} from "./firebase"
+import ItemList from "./ItemList"
 import ItemDetail from "./ItemDetail"
-import ItemList from "./ItemList";
+import { useParams } from "react-router-dom"
+import { db } from "./firebase";
+import { getDoc, doc, collection } from "firebase/firestore"
+ 
 
-const ItemDetailContainer = ( {productoss} ) => {
 
-    let [lista,setLista] = useState([null])
-    let { idd } = useParams();
-    console.log(idd);
+const ItemDetailContainer = ({productoss}) => {
 
-        /*
+        let [lista,setLista] = useState([])
+        let { idd } = useParams();
         console.log(idd);
         
-    const getItem = () =>{
-            const promesa = new Promise((res)=>{
-                setTimeout(()=>{
-                    res(productoss.find(prod=>prod.id===idd));
-                },2000);
-            });
-            
-            promesa
-            .then((prod)=>{
-            
-                setLista(prod);
-           
-            })
-    
-    
-    } 
-    */
+   
     useEffect(() => {
 
-        const productosCollection = collection(db, "productos")
+    const productosCollection = collection(db, "productos")
+    const refDoc = doc(productosCollection, idd)
+    getDoc(refDoc)
+        .then((resultado) => {
+            setLista(resultado.data())
+        })
+        .catch((error) => {
 
-        const refDoc = doc(productosCollection, idd)
-        getDoc(refDoc)
-            .then((resultado)=>{
-                setLista(resultado.data())
-
-            })
-            .catch((error) =>{
-
-            })
-    /*
-    
-   
-   getItem(),
-   */ 
-},[idd])
+        })
+}, [idd])
 
     return (
        <div>

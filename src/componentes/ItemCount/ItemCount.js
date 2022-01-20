@@ -5,7 +5,7 @@ import {Link } from "react-router-dom"
 
 const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
 
-    let [contador, setContador] = useState(initial)
+    let [contador, setContador] = useState(1)
 
     const sumar = () => {
 
@@ -22,63 +22,38 @@ const ItemCount = ({ stock, initial, onAdd,setCantidad, setMostrar }) => {
         if ((contador) > 0) {
             setContador(contador - 1)
         } else {
-            setContador(0)
+            setContador(1)
         }
 
 
     }
- /*
+
     const agregarItem = (e) => {
         onAdd(contador)
-        console.log("Aca agrego un item" + contador + " UNIDADES AL CARRITO")
-        e.target.disabled = true
+        console.log("Aca agrego un item" )
+       
         setMostrar(true) 
         
-        setTimeout(() => {
+       onAdd(contador)
 
-        }, 3000);
-        */
-        const agregarItem = () => {
-            console.log("Aca agrego un item con onAdd")
-            setContador(initial)
-            onAdd(contador)
-        }
-  
+        
+        
+  }
     return (
         <>
             
 
-                <h4>Producto: Ropa</h4>
-                
-                <h4>Stock: {stock}</h4>
+               
                 <h4>{contador}</h4>
 
                     <Button onClick={sumar}>+</Button>
                     <Button onClick={restar}>-</Button>
                     <Link to={`/carrito`}>
-                    <Button onClick={agregarItem}>Agregar</Button>
+                    <Button onClick={onAdd}>Agregar</Button>
                     </Link>
-                   
         </>
 
     )
 }
 
 export default ItemCount 
-
-/*return (
-    <>
-    <div id="fichaContador">       
-    <div id="contadorProducto">
-    <span class="material-icons" onClick={sumar}>+</span>
-    <p>{contador}</p>
-    <span class="material-icons" onClick={restar}>-</span>
-    
-   <Link to={`/carrito`}><button onClick={agregarItem}>AGREGAR</button></Link>
-    </div>
-    </div>
-    </>
-)
-}
-
-export default ItemCount */
