@@ -1,8 +1,15 @@
 import { Link, NavLink} from "react-router-dom"
 
 import { NavBar, Container, Nav, NavDropdown } from "react-bootstrap"
+import { useContexto} from "../Card/Context"
+
+
 
 const Header =({ nombre,links}) => {
+
+
+  const { cantidad_total} = useContexto()
+  console.log("Aqui en header hay" + cantidad_total)
 
     return (
 
@@ -22,10 +29,10 @@ const Header =({ nombre,links}) => {
 
 
             })}
-            <NavLink to="./ItemCount/Item"> 
+            <NavLink to="./carrito"> 
             
             <span className="material-icons">
-                        shopping_cart
+                        shopping_cart{cantidad_total}
                     </span>
             
               </NavLink>

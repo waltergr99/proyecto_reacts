@@ -17,7 +17,7 @@ const Item = ({ item }) => {
                
                 <img src={item.img} alt="thumbnail" />
 
-                <Button href="./Index" >ver detalle </Button>
+                
                 <Link to={`/producto/${item.id}`} className='verdt'>
      <button type="button">
           Ver Detallasos

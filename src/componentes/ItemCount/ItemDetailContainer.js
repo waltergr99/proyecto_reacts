@@ -10,8 +10,8 @@ import { getDoc, doc, collection } from "firebase/firestore"
 
 const ItemDetailContainer = ({productoss}) => {
 
-        let [lista,setLista] = useState([])
-        let { idd } = useParams();
+    let { idd } = useParams();
+    const [lista,setLista] = useState([])
         console.log(idd);
         
    
@@ -21,10 +21,11 @@ const ItemDetailContainer = ({productoss}) => {
     const refDoc = doc(productosCollection, idd)
     getDoc(refDoc)
         .then((resultado) => {
-            setLista(resultado.data())
+            const itemWithId = {...resultado.data(),idd}
+            setLista(itemWithId)
         })
         .catch((error) => {
-
+            console.error(error)
         })
 }, [idd])
 
