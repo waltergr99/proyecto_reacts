@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom"
 import { addDoc, collection , serverTimestamp , updateDoc } from "firebase/firestore"
 import { useContexto } from "./componentes/Card/Context"
 
+
+
+
+
 const Carrito = () => {
     
   const { carrito, removeItem , clear, precio_total } = useContexto()
@@ -25,8 +29,40 @@ const Carrito = () => {
                   {carrito.map((item, indice) => {
                       return (
                       <li key={indice}>
-                          {item.description} - S/{item.price}.00 - Cantidad {item.cantidad} Subtotal: S/{item.price * item.cantidad}.00 -
-                          <button onClick={()=>removeItem(item.id,item.cantidad,item.price)}>borrar</button>
+                          <div>
+                            
+                          {item.description} 
+                          
+
+                          </div>
+                          <div> 
+
+                          - S/{item.price}.00 - 
+
+                          </div>
+                          <div> 
+
+
+                          Cantidad {item.cantidad} 
+                          </div>
+                          <div> 
+
+
+                          Subtotal: S/{item.price * item.cantidad}.00 -
+
+                          </div>
+                        <div> 
+
+                        <div>
+
+
+                          Referencial :
+
+                        </div>
+                          
+                           <img src={item.img}  alt="thumbnail"/>
+                        </div>
+                          <Button onClick={()=>removeItem(item.id,item.cantidad,item.price)}>borrar</Button>
                       </li>
                       )
                   })}
