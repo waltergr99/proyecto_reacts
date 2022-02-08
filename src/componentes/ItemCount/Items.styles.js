@@ -1,3 +1,5 @@
+import _default from "react-bootstrap/esm/Accordion";
+import { alignPropType } from "react-bootstrap/esm/types";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -9,28 +11,33 @@ const useStyles = createUseStyles({
   itemList: {
     margin:{
       
-        
-      top:50,
+        backgroundColor: "white",
+      top:100,
         bottom:350,
         left:10,
         right:5,
-        boder:100,
+        boder:90,
     },
     listStyle: "none",
     display: "flex",
     flexDirection: "column",
     width: 450,
     height: 250,
-    backgroundColor: '#507b88',
-    borderRadius: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
   
   },
   title: {
-    fontSize: 20
+    margin : _default,
+    width: 450,
+    height: 390,
+    fontSize: 35,
+    
   },
   price: {
-    fontSize: 12,
-    fontWeight: "bold"
+    fontSize: 15,
+    fontWeight: "bold",
+   
   }
   
 });

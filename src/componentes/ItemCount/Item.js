@@ -19,9 +19,9 @@ const Item = ({ item }) => {
 
                 
                 <Link to={`/producto/${item.id}`} className='verdt'>
-     <button type="button">
-          Ver Detallasos
-     </button>
+     <Button type="button">
+          Adquirir
+     </Button>
  </Link>
             </li>
 

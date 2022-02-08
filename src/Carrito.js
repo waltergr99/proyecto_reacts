@@ -5,8 +5,7 @@ import { NavLink } from "react-router-dom"
 
 import { addDoc, collection , serverTimestamp , updateDoc } from "firebase/firestore"
 import { useContexto } from "./componentes/Card/Context"
-
-
+import "./carrito.scss"
 
 
 
@@ -69,11 +68,11 @@ const Carrito = () => {
               </ul>
               <h1>Total: S/{precio_total}.00</h1></>
           ) :<><p>No hay productos en el carrito</p>
-              <NavLink to="/home"><button>Volver a comprar</button></NavLink>
+              <NavLink to="/home"><Button>Volver a comprar</Button></NavLink>
              </> 
               
           }
-          <NavLink to="/"><button  onClick={finalizarCompra}>Terminar comprar</button></NavLink>
+          <NavLink to="/"><Button  onClick={finalizarCompra}>Terminar comprar</Button></NavLink>
     </div> 
     )
 

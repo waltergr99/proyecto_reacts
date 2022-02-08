@@ -16,24 +16,25 @@ function App() {
     let [show, setShow] = useState(false)
 
     const links = [
-        { href: "/Home", name: "inicio", id: 1 },
+        { href: "/Home", name: "Inicio", id: 1 },
         { href: "productos", name: "Productos", id: 2 },
         { href: "/categoria/pantalones", name: "Pantalones", id: 3 },
         { href: "/categoria/casacas", name: "Casacas", id: 4 },
         { href: "/carrito", name: "Carrito", id: 5 }
     ]
 
-    const foo = () => {
-        console.log("soy foo")
-    }
-
+      
 
     return (
 
         <CustomProvider>
             <BrowserRouter>
+                <Header nombre={"MAU STORE"} edad={1} links={links} >
+                    
+            
+                    
+                    </Header> 
 
-                <Header nombre={"VIKING STORE"} edad={1} links={links} foo={foo} />
                 <main>
                     <Routes>
                         <Route path="/Home" element={<Home />} />
